@@ -1,6 +1,5 @@
 Ariadne Batista ra: 333333
-Fernando ra 2222222
+Fernando ra 234497
 Luis felipe ra 182956
 Wellington ra 69696969
-Pedro Ferragut ra 242424
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Pedro Ferragut ra 20000
