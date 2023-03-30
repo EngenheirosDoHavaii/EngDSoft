@@ -1,6 +1,6 @@
-Ariadne Bigheti ra: 231580
-Fernando ra 22222
-Luis felipe ra 17171717
+Ariadne Batista ra: 333333
+Fernando ra 2222222
+Luis felipe ra 182956
 Wellington ra 69696969
 Pedro Ferragut ra 242424
 
