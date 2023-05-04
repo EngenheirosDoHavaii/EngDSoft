@@ -4,7 +4,7 @@
   "description": "We would like to build a Cloth Donation Site for study purpose",
   "main": "index.js",
   "scripts": {
-    "start": "CHOKIDAR_USEPOLLING=true node js/index",
+    "start": "CHOKIDAR_USEPOLLING=true node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/EngenheirosDoHavaii/EngDSoft",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2"
   }
 }
