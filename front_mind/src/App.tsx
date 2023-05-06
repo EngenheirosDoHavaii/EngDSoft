@@ -5,11 +5,9 @@ function App() {
   const [ sampleText, setSampleText ] = useState('sei la o que ta escrito aqui');
 
   useEffect(() => {
-    fetch('/hello-world', {
-        method: "GET",
-    })
+    fetch('/hello-world')
     .then((res) => res.json())
-    .then((data) => setSampleText(data))
+    .then((data) => setSampleText(data.init));
   }, []);
   
 
