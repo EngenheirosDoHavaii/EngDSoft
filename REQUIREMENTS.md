@@ -1,3 +1,51 @@
+## Freegle
+<https://www.ilovefreegle.org/>
+Site britânico em que você pode anunciar coisas que quer doar e procurar por doações de objetos específicos que deseja.
+
+Na página inicial há uma descrição rápida do intuito do site, assim como um vídeo animado informativo.
+Existem basicamente dois fluxos de navegação a partir dessa tela, cadastrar produtos clicando em Give Stuff ou Ask for Stuff, e visualização de produtos, onde você primeiro precisa colocar seu postcode para ver os itens da região.
+
+![image](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/75221107/7b778981-6b15-44c3-a1b4-ef0afd1c0344)
+
+Olhando primeiramente para o fluxo de cadastro de produtos, ao clicar em Give Stuff, entramos em uma tela para colocar os dados do objeto que queremos doar como foto, descrição e quantidade disponível.
+
+![image](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/75221107/556bfb9b-ab0f-45d2-8cb4-1b1a7131c644)
+
+Em seguida, temos que adicionar o post code de uma região do Reino Unido onde o site oferece suporte.
+
+![image](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/75221107/fe12aaec-e0b7-4445-b582-d255b15c7f8e)
+
+Por fim, temos um campo para adicionar o email, onde é explicado que o email não será disponibilizado para ninguém e serve apenas para notificar quando alguém tiver interesse no seu produto.
+
+![image](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/75221107/be5dcc08-9cc8-45a8-925d-4f98d019a8f1)
+
+Voltando agora para a página inicial e acessando o fluxo de visualização de produtos, nos deparamos com a seguinte tela:
+
+![image](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/75221107/a0f2f0e9-e9bc-47bf-a513-169865c4b4de)
+
+A página é muito simples de utilizar. Na parte superior existe um mapa e, logo abaixo, um feed com diversos posts de produtos anunciados. No mapa existem círculos, que simbolizam a localização de onde o produto está sendo doado, em que você pode clicar para filtrar os posts de uma determinada área. Os círculos que estiverem visíveis no mapa irão ficar à mostra no feed. Se nenhum círculo estiver no mapa, nenhum post irá aparecer.
+
+Os posts tem duas classificações: Offer, que é um produto sendo doado em algum lugar, e Wanted, que é a descrição de um item que alguém deseja.
+Seguindo para a parte de baixo do mapa temos um filtro, em que podemos filtrar por todos os itens, just wanted ou Just offer. Também existe uma barra de search para procurar elementos específicos.
+
+Falando agora sobre os posts especificamente, cada card possui os seguintes atributos: imagem do produto, uma label no canto da imagem que indica se o anúncio é uma offer ou uma wanted, título dado ao anúncio pelo usuário, postcode do anunciante, data e uma rápida descrição do produto.
+
+![image](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/75221107/be3e10bf-0e2a-4f08-8fb1-4a79ccbb1adc)
+
+Ao clicar em um anúncio, uma modal é aberto dando mais detalhes do produto, em que a imagem é expandida e mostra as mesmas informações anteriores. Dessa vez, é possível visualizar um mapa da proximidade do produto. Abaixo disso, você pode deixar seu email para contato e um campo de texto para colocar uma mensagem do porquê você deveria receber esse produto.
+
+![image](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/75221107/9bfe04cf-2464-4d66-8ff1-a54e2701a6ea)
+
+**Pontos positivos:**
+- Não é necessário login na plataforma para utilizar, basta entrar e começar a usar.
+- Em nenhum momento o site expõe informações pessoais do usuário. Para entrar em contato você deve adicionar seu próprio email e, caso o dono do produto tenha interesse, ele enviará um email para que o contato continue.
+
+**Pontos negativos:**
+- Aparentemente não existe nenhum controle sobre quem pode postar, nem verificação se o produto é real, o que pode ser um problema em caso de usuários mal intencionados.
+- A página só funciona no Reino Unido, inclusive é necessário fornecer um postcode de lá para acessar o site.
+
+---
+
 ## Trashnothing:
 <https://trashnothing.com/beta/>
 
