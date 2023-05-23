@@ -1,0 +1,6 @@
+.ProductList {
+    list-style-type: none;
+    background-color: rgba(102, 51, 153, 0.5);
+    width: 60%;
+    margin: 0 auto;
+}
