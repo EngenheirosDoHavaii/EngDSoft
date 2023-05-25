@@ -1,6 +1,7 @@
-import "./ProductView.css"
+import "../style/ProductView.css"
+import Product from "../interfaces/Product"
 
-const ProductView = (product) => {
+const ProductView = (product: Product) => {
     const buttonHandler = () => {
         console.log("button pressed")
     }
