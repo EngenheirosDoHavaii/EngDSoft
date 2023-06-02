@@ -74,12 +74,12 @@ function ProductListView() {
   ];
 
   const listItems = products.map((product) => (
-    <li key={product.id}>{ProductView(product)}</li>
+    <li className="ListView" key={product.id}>{ProductView(product)}</li>
   ));
 
   return (
     <div>
-      <h1> Lista de produtos </h1>
+      <h1 className="PageTitle"> Lista de produtos </h1>
       <ul className="ProductList"> {listItems} </ul>
     </div>
   );

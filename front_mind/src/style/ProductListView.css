@@ -1,10 +1,17 @@
 .ProductList {
     list-style-type: none;
-    background-color: rgba(102, 51, 153, 0.5);
-    width: 60%;
+    background-color: #a1bbef;;
+    width: 45%;
     margin: auto;
 }
 
-ul {
-    padding: 0px;
+.PageTitle {
+    margin-top: 0%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 50px;
+}
+
+.ListView {
+    margin:0 0 15px 0;  
 }
