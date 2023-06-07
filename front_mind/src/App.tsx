@@ -1,46 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import './style/App.css';
-import { db } from './services/firebase';
-import { collection, DocumentData, getDocs } from 'firebase/firestore/lite';
+import { SignIn } from './pages/SignIn';
+import { Perfil } from './pages/Perfil';
+import { Route, Routes } from 'react-router-dom';
+import Protected from './components/Protected';
 
-function App() {
-  const [ sampleText, setSampleText ] = useState('sei la o que ta escrito aqui');
-  const [ users, setUsers ] = useState<DocumentData[]>();
-
-  useEffect(() => {
-    fetch('/hello-world')
-    .then((res) => res.json())
-    .then((data) => setSampleText(data.init));
-
-    const citiesCol = collection(db, 'usuarios');
-    const citySnapshot = getDocs(citiesCol).then(
-      (data) => {
-        const newUsers = data.docs.map(doc => doc.data());
-        setUsers(newUsers);
-      }
-    );
-  }, []);
-
-  const listUser = (user: DocumentData) => {
-
-    return (
-      <>
-        <div>
-          email: {user.email}
-          last Name: {user.last_name}
-          name: {user.name}
-        </div>
-      </>
-    );
-  };
-
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {users?.map((user)=> listUser(user))}
-      </header>
+    <div>
+    <Routes>
+    <Route
+      path='/'
+      element={
+        <Protected>
+          <Perfil />
+        </Protected>
+      }
+    />
+    <Route path='/signin' element={<SignIn />} />
+    </Routes>
     </div>
   );
 }
-
-export default App;
