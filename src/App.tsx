@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import './style/App.css';
-import ProductListView from './components/ProductListView';
+import { SignIn } from './pages/SignIn';
+import { Profile } from './pages/Profile';
+import { Route, Routes } from 'react-router-dom';
+import Protected from './components/Protected';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <ProductListView/>
+    <div>
+    <Routes>
+    <Route
+      path='/'
+      element={
+        <Protected>
+          <Profile />
+        </Protected>
+      }
+    />
+    <Route path='/signin' element={<SignIn />} />
+    </Routes>
     </div>
   );
 }
-
-export default App;
