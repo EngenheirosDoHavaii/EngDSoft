@@ -1,6 +1,8 @@
 import Modal from "react-modal";
 import React from "react";
 import TextInput from "../Inputs/TextInput";
+import { Firebase } from "../../services/firebase";
+import { ItemEntity } from "../../entity/item-entity";
 
 interface InputValue {
   value: string;
@@ -14,11 +16,17 @@ interface FormParams {
 function AddItemModal() {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
 
-  function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const formElements = form.elements as typeof form.elements & FormParams;
-    console.log(formElements.title.value);
+    const itemId = await Firebase.AddProduct({
+      title: formElements.title.value,
+      description: formElements.description.value,
+    } as ItemEntity);
+
+    alert(`Your item has been published! ${itemId}`);
+    changeModalVisibility();
   }
 
   function changeModalVisibility() {

@@ -1,7 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
-import { getFirestore } from 'firebase/firestore/lite';
+import { getFirestore } from 'firebase/firestore';
+import { collection, addDoc } from "firebase/firestore";
+import { ItemEntity } from "../entity/item-entity";
 
 export class Firebase  {
   private static firebaseConfig = {
@@ -30,5 +32,11 @@ export class Firebase  {
 
   public static LogOut() {
     signOut(Firebase.auth);
+  }
+
+  public static async AddProduct(item: ItemEntity) {
+    const docRef = await addDoc(collection(Firebase.db, "products"), item);
+
+    return docRef.id;
   }
 }
