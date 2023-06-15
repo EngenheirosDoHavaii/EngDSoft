@@ -16,7 +16,7 @@ export function SignIn() {
       <h1>Acesse sua conta</h1>
 
       <button type="button" onClick={AuthenticatedUser} className="button">
-        SignIn with Google
+        Sign In with Google
       </button>
     </div>
   );

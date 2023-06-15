@@ -1,0 +1,18 @@
+.nav {
+    background-color: #3c75e7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem calc((100vw - 1000px) / 2);
+}
+
+.minde,
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.minde {
+    font-size: 36px;
+    font-weight: bold;
+}
