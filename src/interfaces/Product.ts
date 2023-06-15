@@ -3,6 +3,7 @@ type Product = {
     name: string;
     email: string;
     description: string;
+    image?: File
 };
 
 export default Product;

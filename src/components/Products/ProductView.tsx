@@ -1,6 +1,6 @@
-import "../style/ProductView.css";
-import Product from "../interfaces/Product";
-import logo from '../style/assets/mockimage.jpeg';
+import "../../style/ProductView.css";
+import Product from "../../interfaces/Product";
+import logo from '../../style/assets/mockimage.jpeg';
 
 const ProductView = (product: Product) => {
   const buttonHandler = () => {

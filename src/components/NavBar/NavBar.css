@@ -1,0 +1,28 @@
+.navBar {
+    display: flex;
+    box-shadow: rgba(0,0,0,.15) 0px -2px 10px 0 px;
+    background-color: #e7e7e7;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.mind {
+    font-size: 2em;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.linkList {
+    display: flex;
+    list-style: none;
+}
+
+.linkList li a {
+    padding: .4em .6em;
+}
+
+.clickedLink {
+    background-color: #3c75e7;
+    color: white;
+}

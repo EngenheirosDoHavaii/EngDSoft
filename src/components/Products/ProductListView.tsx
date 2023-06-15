@@ -1,6 +1,6 @@
 import ProductView from "./ProductView";
-import "../style/ProductListView.css";
-import Product from "../interfaces/Product";
+import "../../style/ProductListView.css";
+import Product from "../../interfaces/Product";
 
 function ProductListView() {
   const numbers = [1, 2, 3, 4, 5, 6, 6, 7];
@@ -74,7 +74,9 @@ function ProductListView() {
   ];
 
   const listItems = products.map((product) => (
-    <li className="ListView" key={product.id}>{ProductView(product)}</li>
+    <li className="ListView" key={product.id}>
+      {ProductView(product)}
+    </li>
   ));
 
   return (
