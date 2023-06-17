@@ -1,25 +1,27 @@
-# Site para divulgação de roupas à serem doadas
+### Diagrama:
 
+![to_readme](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/52415053/4c428307-844a-4d52-871a-6f795b719e6f)
 
-## Como instalar as depências do projeto
+### Estilo arquitetural adotado:
 
-Para instalar o NVM (Node Version Manager), execute os seguintes comandos em um terminal linux:
+- MVC
 
-- sudo apt install curl 
-- curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-- source ~/.bashrc  
+### Padrão de projeto:
 
-A seguir, instalem o Node que baixara junto com ele o NPM:
+- Singleton / firebase.ts
 
-- nvm install node --lts
+### Descrição dos Componentes:
 
+**Login Controller**: Responsável por fazer a autenticação de um usuário caso ele esteja registrado, ou cadastrá-lo.
 
-## Como rodar o projeto 
+**Product List**: Responsável por apresentar visualmente todos os produtos registrados no aplicativo para os usuários.
 
-Primeiro, é preciso instalar as bibliotecas de dependencia do projeto, execute:
+**Product Register**: Permite que um usuário registre um novo produto no sistema.
 
-- npm install
+**Profile View**: Apresenta as informações pessoais do usuário, como nome, sobrenome, email e permite edição dos produtos. Isso inclui o módulo Product Edit.
 
-Se não ocorreu erros, é só ir para o proximo comando:
+**Product Edit**: Módulo contido no perfil pessoal do usuário, permite que o mesmo acesse seus produtos já cadastrados, de forma que o mesmo possa editar os dados ou excluí-los do sistema.
 
-- npm start
+**Email Sender**: Módulo acessível a partir do Product list. Permite que um usuário interessado em um produto se comunique com o dono do produto. Sem expor os dados do dono.
+
+**Service Firebase**: Interface que será usada para adicionar ou pegar dados dos bancos.
