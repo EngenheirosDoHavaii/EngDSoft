@@ -1,16 +1,18 @@
-### Diagrama:
+## Diagrama:
 
-![to_readme](https://github.com/EngenheirosDoHavaii/EngDSoft/assets/52415053/4c428307-844a-4d52-871a-6f795b719e6f)
+<p align="center">
+  <img src="https://github.com/EngenheirosDoHavaii/EngDSoft/assets/52415053/4c428307-844a-4d52-871a-6f795b719e6f" alt="Diagrama do Projeto"/>
+</p>
 
-### Estilo arquitetural adotado:
+## Estilo arquitetural adotado:
 
 - MVC
 
-### Padrão de projeto:
+## Padrão de projeto:
 
-- Singleton / firebase.ts
+- Singleton (src/services/firebase.ts)
 
-### Descrição dos Componentes:
+## Descrição dos Componentes:
 
 **Login Controller**: Responsável por fazer a autenticação de um usuário caso ele esteja registrado, ou cadastrá-lo.
 
