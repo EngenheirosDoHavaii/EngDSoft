@@ -1,0 +1,43 @@
+
+.navBar {
+    display: flex;
+    box-shadow: rgba(0,0,0,.15) 0px -2px 10px 0 px;
+    background-color: #3c75e7;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.mind,
+.linkList li a {
+    text-decoration: none;
+    color: white
+}
+
+.mind {
+    font-size: 2em;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.linkList {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    gap: 10px;
+}
+
+.linkList li a {
+    padding: .8em .6em;
+}
+
+.linkList li a:hover {
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #a1bbef;
+}
+
+.clickedLink {
+    border: solid 2px #a1bbef;
+    border-radius: 10px;
+}
