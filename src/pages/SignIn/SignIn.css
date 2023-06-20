@@ -1,0 +1,25 @@
+body {
+    background-color: white;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    color: #3c75e7;
+    font-size: 100px;
+    font-weight: 900;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
