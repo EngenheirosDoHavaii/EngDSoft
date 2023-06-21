@@ -1,5 +1,5 @@
-import { SignIn } from "./pages/SignIn";
-import { Profile } from "./pages/Profile";
+import { SignIn } from "./pages/SignIn/SignIn";
+import { Profile } from "./pages/Profile/Profile";
 import { Route, Routes } from "react-router-dom";
 import Protected from "./components/Protected";
 import "./style/App.css"

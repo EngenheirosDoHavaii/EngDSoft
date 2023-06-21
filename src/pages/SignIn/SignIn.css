@@ -1,12 +1,15 @@
-body {
-    background-color: white;
-}
-.container {
+.container-signin {
     display: flex;
     flex-direction: column;
+    background-color: #e5ecff;
+    height: 100vh;
+    margin: 0;
+    padding-top: 48px;
+    gap: 18px;
+    align-items: center;
 }
 
-h1 {
+.container-signin h1 {
     color: #3c75e7;
     font-size: 100px;
     font-weight: 900;
@@ -14,12 +17,50 @@ h1 {
 
 .content-container {
     display: flex;
-    align-items: center;
     justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    gap: 100px
 }
 
 .text {
     display: flex;
     flex-direction: column;
     text-align: left;
+    align-items: center;
+    max-width: 400px;
 }
+
+.text h2 {
+    color: #3c75e7;
+    font-size: 30px;
+    margin: 0
+}
+
+.access {
+    display: flex;
+    flex-direction: column;
+    gap: 14px
+}
+
+.access h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.button-signin {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 18px;
+    padding: 8px 28px;
+    background-color: #3c75e7;
+    color: white;
+    cursor: pointer;
+}
+
+.button-signin:hover {
+    background-color: #2e5fc1;
+}
+
