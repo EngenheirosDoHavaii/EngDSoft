@@ -10,7 +10,7 @@ function TextInput({ text }: Params) {
 
   return (
     <div>
-      <label htmlFor={inputName}>{textToShow}:</label>
+      <label htmlFor={inputName}>{textToShow}</label>
       <input name={inputName} />
     </div>
   );
