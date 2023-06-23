@@ -20,14 +20,14 @@ export function Profile() {
   }, [auth, navigate]);
 
   return (
-    <div className="container">
+    <div className="container-profile">
       <h1>Perfil</h1>
       <div className="user">
         <h4>{auth.currentUser?.displayName}</h4>
         <h4>{auth.currentUser?.email}</h4>
       </div>
       <div>
-        <button type="button" onClick={Firebase.LogOut} className="button">
+        <button type="button" onClick={Firebase.LogOut} className="button-profile">
           Log Out
         </button>
       </div>
