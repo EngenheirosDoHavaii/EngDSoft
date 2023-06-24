@@ -17,7 +17,7 @@ export function SignIn() {
       <h1>MIND&</h1>
       <div className="content-container">
         <div className="text">
-          <h2>Don't throw away, give to someone!</h2>
+          <h2>Don't throw away, give it to someone!</h2>
           <p>In our community you can find a new home for things you no longer need.</p>
         </div>
         <div className="access">

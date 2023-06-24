@@ -29,14 +29,14 @@ export function Profile() {
 
           <div className="top-header">
             <img src={profilePic} alt="user profile" className="profile-pic"></img>
-            <button type="button" onClick={Firebase.LogOut} className="button-profile">
-              Log Out
+            <button type="button" onClick={Firebase.LogOut} className="logout-button">
+              Logout
             </button>
           </div>
           
           <div className="user-profile-text">
             <div className="user-name">{auth.currentUser?.displayName}</div>
-            <div className="user-date"> Created in: day, month year</div>
+            <div className="user-date"> Since day, month year</div>
             <div className="user-email">{auth.currentUser?.email}</div>
           </div>
 
@@ -44,16 +44,14 @@ export function Profile() {
 
         <hr></hr>
 
-        <div className="add-item-button">
-          <AddItemModal />
+        <div className="profile-body">
+          <h4 className="user-items-title">Your products:</h4>
+          <div>
+            <AddItemModal />
+          </div>
         </div>
-        
 
-          
       </div>
-      
-
-      
     </div>
   );
 }
