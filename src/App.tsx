@@ -5,6 +5,7 @@ import Protected from "./components/Protected";
 import "./style/App.css"
 import WithoutNav from "./components/WithoutNav";
 import WithNav from "./components/WithNav";
+import ProductListView from "./pages/Product List/ProductListView";
 
 export default function App() {
   return (
@@ -15,7 +16,7 @@ export default function App() {
           path="/"
           element={
             <Protected>
-              <Profile />
+              <ProductListView />
             </Protected>
           }
           />

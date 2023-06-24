@@ -1,6 +1,6 @@
-import ProductView from "./ProductView";
-import "../style/ProductListView.css";
-import Product from "../interfaces/Product";
+import ProductView from "../../components/ProductView";
+import "../../style/ProductListView.css";
+import Product from "../../interfaces/Product";
 
 function ProductListView() {
   const numbers = [1, 2, 3, 4, 5, 6, 6, 7];
