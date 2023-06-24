@@ -3,6 +3,7 @@ import React from "react";
 import TextInput from "../Inputs/TextInput";
 import { Firebase } from "../../services/firebase";
 import { ItemEntity } from "../../entity/item-entity";
+import "./AddItemModal.css"
 
 interface InputValue {
   value: string;
@@ -35,7 +36,7 @@ function AddItemModal() {
 
   return (
     <div>
-      <button onClick={changeModalVisibility}>Add Item</button>
+      <button onClick={changeModalVisibility} className="add-item-button">Add Item</button>
       <Modal isOpen={modalIsOpen} contentLabel="AddItemModal">
         <form onSubmit={handleSubmit}>
           <TextInput text="title" />

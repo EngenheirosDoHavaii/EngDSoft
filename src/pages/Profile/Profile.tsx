@@ -2,6 +2,8 @@ import { Firebase } from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import AddItemModal from "../../components/Modal/AddItemModal";
+import profilePic from "../../images/profile-pic-mock.jpg"
+import "./Profile.css"
 
 export function Profile() {
   const navigate = useNavigate();
@@ -21,19 +23,34 @@ export function Profile() {
 
   return (
     <div className="container-profile">
-      <h1>Perfil</h1>
-      <div className="user">
-        <h4>{auth.currentUser?.displayName}</h4>
-        <h4>{auth.currentUser?.email}</h4>
-      </div>
-      <div>
-        <button type="button" onClick={Firebase.LogOut} className="button-profile">
-          Log Out
-        </button>
-      </div>
+      <div className="profile-content">
 
-      <div>
-        <AddItemModal />
+        <div className="profile-header">
+
+          <div className="top-header">
+            <img src={profilePic} alt="user profile" className="profile-pic"></img>
+            <button type="button" onClick={Firebase.LogOut} className="logout-button">
+              Logout
+            </button>
+          </div>
+          
+          <div className="user-profile-text">
+            <div className="user-name">{auth.currentUser?.displayName}</div>
+            <div className="user-date"> Since day, month year</div>
+            <div className="user-email">{auth.currentUser?.email}</div>
+          </div>
+
+        </div>
+
+        <hr></hr>
+
+        <div className="profile-body">
+          <h4 className="user-items-title">Your products:</h4>
+          <div>
+            <AddItemModal />
+          </div>
+        </div>
+
       </div>
     </div>
   );

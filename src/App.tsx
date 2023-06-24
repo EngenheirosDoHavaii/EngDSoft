@@ -19,6 +19,7 @@ export default function App() {
             </Protected>
           }
           />
+          <Route path="/profile" element={<Profile />}/>
         </Route>
         
         <Route element={<WithoutNav />}>
