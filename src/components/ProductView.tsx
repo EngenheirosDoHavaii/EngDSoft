@@ -15,8 +15,8 @@ const ProductView = (product: Product) => {
         </div>
         <div className="Text">
           <h1> {product.name} </h1>
-          <p> {product.email} </p>
-          <p> {product.description} </p>
+          <p><strong>Descrição:</strong> {product.description} </p>
+          <p><strong>Email do proprietário:</strong> {product.email} </p>
           <button onClick={buttonHandler}>See details </button>
         </div>
       </div>

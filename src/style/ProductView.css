@@ -1,6 +1,6 @@
 .ProductCard {
     border-radius: 25px;
-    color: rgb(51, 51, 51);
+    color: black;
     background-color:  #3c75e7;
     margin: 0 auto;
     width: 100%;
@@ -8,12 +8,11 @@
 
 .Container {
     display: flex;
-    width: 300px;
     gap: 15px;
+    justify-content: flex-start;
 }
   
 .Image {
-    margin: auto;
     flex: block;
     padding: 10px;
     display: flex;

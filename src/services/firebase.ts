@@ -2,8 +2,10 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc,  getDocs} from "firebase/firestore";
 import { ItemEntity } from "../entity/item-entity";
+import Product from "../interfaces/Product";
+
 
 export class Firebase  {
   private static firebaseConfig = {
@@ -38,5 +40,20 @@ export class Firebase  {
     const docRef = await addDoc(collection(Firebase.db, "products"), item);
 
     return docRef.id;
+  }
+
+  public static async getProducts() {
+    const productsSnapshot = await getDocs(collection(Firebase.db, "products"));
+    const productsList = productsSnapshot.docs.map(doc => { 
+      const data = doc.data()
+      const newData: Product = {
+        name: data.title,
+        description: data.description,
+        id: doc.id, 
+        email: data.email 
+      }
+      return newData
+    });
+    return productsList
   }
 }

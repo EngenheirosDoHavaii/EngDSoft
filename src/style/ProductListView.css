@@ -1,17 +1,23 @@
 .ProductList {
     list-style-type: none;
-    background-color: #a1bbef;
+    padding-left: 0%;
     width: 45%;
     margin: auto;
 }
 
 .PageTitle {
+    text-align: center;
     margin-top: 0%;
     padding-top: 50px;
     padding-bottom: 20px;
     font-size: 50px;
 }
 
+.Page {
+    background-color: #e5ecff;
+}
+
 .ListView {
     margin:0 0 15px 0;  
+    list-style-type: none;
 }
