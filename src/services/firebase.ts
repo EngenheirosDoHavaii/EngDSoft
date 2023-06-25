@@ -39,13 +39,14 @@ export class Firebase  {
 
   public static async isUserInDatabase(userID: string) {
     const usersList = await getDocs(collection(Firebase.db, "users"));
-    usersList.docs.forEach(user => {
-      if (userID === user.data().uid) {
-        return true
-      }
-    });
 
-    return false
+    for (let user of usersList.docs) {
+      if (userID === user.data().uid) {
+        return true;
+      }
+    } 
+    return false;
+
   }
 
   public static async addUser(user: User) {
