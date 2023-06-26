@@ -8,6 +8,7 @@ export function SignIn() {
   async function AuthenticatedUser() {
     const authenticatedUser = await Firebase.SignInWithGoogle();
     if (authenticatedUser != null) {
+      await Firebase.addUser(authenticatedUser);
       navigate("/");
     }
   }
