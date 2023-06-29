@@ -5,7 +5,7 @@ import { Firebase } from "../../services/firebase";
 import { useState, useEffect } from "react";
 
 const getFilteredItems = (query: string, items: Product[]) => {
-  query.toLowerCase()
+  query = query.toLowerCase()
   if (!query) {
     return items;
   }
