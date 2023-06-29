@@ -1,6 +1,7 @@
 import "../style/ProductView.css";
 import Product from "../interfaces/Product";
 import logo from '../style/assets/mockimage.jpeg';
+import { Firebase } from "../services/firebase";
 
 const ProductView = (product: Product) => {
   const buttonHandler = () => {
@@ -18,6 +19,9 @@ const ProductView = (product: Product) => {
           <p><strong>Description:</strong> {product.description} </p>
           <p><strong>Contact:</strong> {product.email} </p>
           <button onClick={buttonHandler}>See details </button>
+          {Firebase.GetAuth().currentUser?.email === product.email && 
+            <button>Delete</button>
+          }
         </div>
       </div>
     </div>

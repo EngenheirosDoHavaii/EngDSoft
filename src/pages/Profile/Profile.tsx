@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import AddItemModal from "../../components/Modal/AddItemModal";
 import profilePic from "../../images/profile-pic-mock.jpg"
-import "./Profile.css"
+import "../../style/Profile.css"
 import UserProductList from "../../components/UserProductsList/UserProductList";
 
 export function Profile() {
@@ -46,14 +46,21 @@ export function Profile() {
         <hr></hr>
 
         <div className="profile-body">
-          <h4 className="user-items-title">Your products:</h4>
-          <div>
-            <AddItemModal />
+          <div className="profile-body-flex-up">
+            <h4 className="user-items-title">Your products:</h4>
+            <div>
+              <AddItemModal />
+            </div>
           </div>
+          
+          <div className="user-list">
+            <UserProductList />
+          </div>
+        
           
         </div>
 
-        <UserProductList />
+        
         
 
       </div>

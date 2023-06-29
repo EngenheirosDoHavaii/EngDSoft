@@ -7,7 +7,7 @@
 }
 
 .profile-content {
-    max-width: 1000px;
+    max-width: 900px;
     width: 100%;
 }
 
@@ -73,10 +73,20 @@
 
 /* BODY */
 .profile-body {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-body-flex-up {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 30px;
+}
+
+.user-list {
+    width: 100%;
 }
 
 .user-items-title {
