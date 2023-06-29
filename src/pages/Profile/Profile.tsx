@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import AddItemModal from "../../components/Modal/AddItemModal";
 import profilePic from "../../images/profile-pic-mock.jpg"
 import "./Profile.css"
-import UserProductList from "../../components/UserProductList";
+import UserProductList from "../../components/UserProductsList/UserProductList";
 
 export function Profile() {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
-import ProductView from "./ProductView";
-import Product from "../interfaces/Product";
-import { Firebase } from "../services/firebase";
+import ProductView from "../ProductView";
+import Product from "../../interfaces/Product";
+import { Firebase } from "../../services/firebase";
 import { useState, useEffect } from "react";
 
 function UserProductList() {
