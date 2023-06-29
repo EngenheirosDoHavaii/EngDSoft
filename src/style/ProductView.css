@@ -1,8 +1,9 @@
 .ProductCard {
     border-radius: 25px;
+    background-color:  #3c75e7d8;
     color: black;
-    background-color:  #3c75e7;
     margin: 0 auto;
+    padding-right: 10px;
     width: 100%;
 }
 

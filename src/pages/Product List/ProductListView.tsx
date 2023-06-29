@@ -17,7 +17,7 @@ function ProductListView() {
 
   return (
     <div className="Page">
-      <h1 className="PageTitle"> Lista de produtos </h1>
+      <h1 className="PageTitle">Product's List</h1>
       <ul className="ProductList"> {listItems} </ul>
     </div>
   );

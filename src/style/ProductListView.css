@@ -1,8 +1,12 @@
 .ProductList {
     list-style-type: none;
     padding-left: 0%;
-    width: 45%;
+    width: 900px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px;
 }
 
 .PageTitle {
@@ -13,11 +17,12 @@
     font-size: 50px;
 }
 
-.Page {
-    background-color: #e5ecff;
+.ListView {
+    list-style-type: none;
 }
 
-.ListView {
-    margin:0 0 15px 0;  
-    list-style-type: none;
+@media (max-width: 1000px) {
+    .ProductList {
+        width: 80%;
+    }
 }
