@@ -17,6 +17,13 @@
     font-size: 50px;
 }
 
+.SearchBar {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: x-large;
+}
+
 .ListView {
     list-style-type: none;
 }
