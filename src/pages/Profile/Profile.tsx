@@ -2,9 +2,10 @@ import { Firebase } from "../../services/firebase";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AddItemModal from "../../components/Modal/AddItemModal";
-import profilePic from "../../images/profile-pic-mock.jpg";
-import "./Profile.css";
 import { User } from "firebase/auth";
+import profilePic from "../../images/profile-pic-mock.jpg";
+import "../../style/Profile.css";
+import UserProductList from "../../components/UserProductsList/UserProductList";
 
 export function Profile() {
   const navigate = useNavigate();
@@ -45,10 +46,19 @@ export function Profile() {
             </button>
           </div>
 
+          <div className="user-profile-text">
+            <div className="user-name">{auth.currentUser?.displayName}</div>
+            <div className="user-date">Since </div>
+            <div className="user-email">{auth.currentUser?.email}</div>
+          </div>
+
           {userData && (
             <div className="user-profile-text">
               <div className="user-name">{userData.displayName}</div>
-              <div className="user-date">Since day, month year</div>
+              <div className="user-date">
+                Since{" "}
+                {userData.metadata.creationTime?.substring(8, 16).toLowerCase()}{" "}
+              </div>
               <div className="user-email">{userData.email}</div>
             </div>
           )}
@@ -57,9 +67,15 @@ export function Profile() {
         <hr />
 
         <div className="profile-body">
-          <h4 className="user-items-title">Your products:</h4>
-          <div>
-            <AddItemModal />
+          <div className="profile-body-flex-up">
+            <h4 className="user-items-title">Your products:</h4>
+            <div>
+              <AddItemModal />
+            </div>
+          </div>
+
+          <div className="user-list">
+            <UserProductList />
           </div>
         </div>
       </div>

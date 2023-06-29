@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-import "./NavBar.css";
+import "../../style/NavBar.css";
 import React from "react";
 
 const NavBar = () => {
@@ -11,9 +11,6 @@ const NavBar = () => {
       <ul className="linkList">
         <li>
           <NavLink to="/" className={({isActive}) => (isActive ? "clickedLink" : "")}>All Products</NavLink>
-        </li>
-        <li>
-          <NavLink to="/register" className={({isActive}) => (isActive ? "clickedLink" : "")}>Register Products</NavLink>
         </li>
         <li>
           <NavLink to="/profile" className={({isActive}) => (isActive ? "clickedLink" : "")}>Profile</NavLink>
