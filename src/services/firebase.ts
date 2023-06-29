@@ -7,7 +7,7 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { Timestamp, getFirestore, orderBy, query, updateDoc } from "firebase/firestore";
 import { collection, addDoc, getDocs, deleteDoc } from "firebase/firestore";
 import { ItemEntity } from "../entity/item-entity";
 import Product from "../interfaces/Product";
@@ -71,12 +71,14 @@ export class Firebase {
 
   public static async AddProduct(item: ItemEntity) {
     const docRef = await addDoc(collection(Firebase.db, "products"), item);
-
+    await updateDoc(docRef, {timestamp: Timestamp.fromMillis(Date.now())});
     return docRef.id;
   }
 
   public static async getProducts() {
-    const productsSnapshot = await getDocs(collection(Firebase.db, "products"));
+    const collectionRef = collection(Firebase.db, "products")
+    const q = query(collectionRef, orderBy('timestamp', 'desc'))
+    const productsSnapshot = await getDocs(q);
     const productsList = productsSnapshot.docs.map((doc) => {
       const data = doc.data();
       const newData: Product = {

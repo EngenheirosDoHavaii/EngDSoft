@@ -10,7 +10,6 @@ function UserProductList() {
     useEffect(() => {
         Firebase.getUserProducts().then((userProductList) => setMyList(userProductList))
     }, [])
-    console.log(myList);
     
     const listItems = myList.map((product) => (
         <li className="user-product-view" key={product.id.toString()}>{ProductView(product)}</li>
