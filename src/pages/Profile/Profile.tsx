@@ -36,7 +36,7 @@ export function Profile() {
           
           <div className="user-profile-text">
             <div className="user-name">{auth.currentUser?.displayName}</div>
-            <div className="user-date"> Since day, month year</div>
+            <div className="user-date">Since {auth.currentUser?.metadata.creationTime?.substring(8, 16).toLowerCase()}</div>
             <div className="user-email">{auth.currentUser?.email}</div>
           </div>
 
