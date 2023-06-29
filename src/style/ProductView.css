@@ -3,7 +3,6 @@
     background-color:  #3c75e7d8;
     color: black;
     margin: 0 auto;
-    padding-right: 10px;
     width: 100%;
 }
 
@@ -28,6 +27,43 @@ img {
     text-align: left;
     display: block;
     margin-left: 0px;
+    margin-right: 25px;
     flex-direction: column;
     justify-content: left;
+}
+
+.product-name {
+    font-size: 27px;
+}
+
+.product-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.details-btn,
+.delete-btn {
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.details-btn {
+    background-color: rgb(93, 224, 181);
+}
+
+.details-btn:hover {
+    background-color: rgb(94, 207, 170);
+}
+
+.delete-btn {
+    background-color: rgb(255, 71, 71);
+    color: white;   
+}
+
+.delete-btn:hover {
+    background-color: #e53939;
 }

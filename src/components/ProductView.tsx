@@ -8,6 +8,10 @@ const ProductView = (product: Product) => {
     console.log("button pressed");
   };
 
+  const deleteButtonHandler = () => {
+    Firebase.deleteUserProduct(product);
+  }
+
   return (
     <div className="ProductCard">
       <div className="Container">
@@ -15,13 +19,17 @@ const ProductView = (product: Product) => {
           <img src={logo} width={150} height={150} alt="Chair"></img>
         </div>
         <div className="Text">
-          <h1> {product.name} </h1>
+          <h1 className="product-name">{product.name}</h1>
           <p><strong>Description:</strong> {product.description} </p>
           <p><strong>Contact:</strong> {product.email} </p>
-          <button onClick={buttonHandler}>See details </button>
+
+        <div className="product-buttons">
+          <button className="details-btn" onClick={buttonHandler}>See details</button>
           {Firebase.GetAuth().currentUser?.email === product.email && 
-            <button>Delete</button>
+            <button className="delete-btn" onClick={deleteButtonHandler}>Delete</button>
           }
+        </div>
+
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, deleteDoc } from "firebase/firestore";
 import { ItemEntity } from "../entity/item-entity";
 import Product from "../interfaces/Product";
 import UserType from "../interfaces/UserType";
@@ -82,7 +82,7 @@ export class Firebase {
       const newData: Product = {
         name: data.title,
         description: data.description,
-        id: doc.id,
+        id: doc.ref,
         email: data.email,
       };
       return newData;
@@ -97,4 +97,10 @@ export class Firebase {
     );
     return userProducts;
   }
+  
+  public static async deleteUserProduct(product: Product) {
+    await deleteDoc(product.id)
+    return;
+  }
 }
+

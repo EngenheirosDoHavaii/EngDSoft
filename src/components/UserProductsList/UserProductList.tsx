@@ -13,7 +13,7 @@ function UserProductList() {
     console.log(myList);
     
     const listItems = myList.map((product) => (
-        <li className="user-product-view" key={product.id}>{ProductView(product)}</li>
+        <li className="user-product-view" key={product.id.toString()}>{ProductView(product)}</li>
       ));
     
       return (

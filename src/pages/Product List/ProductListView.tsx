@@ -12,7 +12,7 @@ function ProductListView() {
   }, [])
   
   const listItems = minhaLista.map((product) => (
-    <li className="ListView" key={product.id}>{ProductView(product)}</li>
+    <li className="ListView" key={product.id.toString()}>{ProductView(product)}</li>
   ));
 
   return (
