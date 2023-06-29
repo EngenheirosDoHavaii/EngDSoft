@@ -1,8 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, User, getAuth, signInWithPopup, signOut} from "firebase/auth";
-import { getFirestore } from 'firebase/firestore';
-import { collection, addDoc,  getDocs} from "firebase/firestore";
+import { Firestore, getFirestore } from 'firebase/firestore';
+import { collection, addDoc,  getDocs, deleteDoc} from "firebase/firestore";
 import { ItemEntity } from "../entity/item-entity";
 import Product from "../interfaces/Product";
 import UserType from "../interfaces/UserType";
@@ -77,8 +77,8 @@ export class Firebase  {
       const newData: Product = {
         name: data.title,
         description: data.description,
-        id: doc.id, 
-        email: data.email
+        id: doc.ref, 
+        email: data.email,
       }
       return newData
     });
@@ -89,5 +89,10 @@ export class Firebase  {
     let productsList = await Firebase.getProducts();
     const userProducts = productsList.filter(product => product.email === this.auth.currentUser?.email);
     return userProducts;
+  }
+
+  public static async deleteUserProduct(product: Product) {
+    await deleteDoc(product.id)
+    return;
   }
 }
