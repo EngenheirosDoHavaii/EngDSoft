@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, User, getAuth, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, User, getAuth, signInWithPopup, signOut, setPersistence} from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 import { collection, addDoc,  getDocs} from "firebase/firestore";
 import { ItemEntity } from "../entity/item-entity";
@@ -78,10 +78,18 @@ export class Firebase  {
         name: data.title,
         description: data.description,
         id: doc.id, 
-        email: data.email 
+        email: data.email,
       }
       return newData
     });
     return productsList
+  }
+
+  public static async getUserProducts() {
+    let productsList = await Firebase.getProducts();
+    console.log(productsList);
+    const userProducts = productsList.filter(product => product.email === this.auth.currentUser?.email);
+    console.log(userProducts);
+    return userProducts;
   }
 }

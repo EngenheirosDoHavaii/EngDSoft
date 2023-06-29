@@ -16,6 +16,7 @@ interface FormParams {
 
 function AddItemModal() {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
+  const auth = Firebase.GetAuth();
 
   async function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -24,14 +25,21 @@ function AddItemModal() {
     const itemId = await Firebase.AddProduct({
       title: formElements.title.value,
       description: formElements.description.value,
+      email: auth.currentUser?.email,
+      user_id: auth.currentUser?.uid
     } as ItemEntity);
 
     alert(`Your item has been published! ${itemId}`);
-    changeModalVisibility();
+    changeModalVisibility()
+    refreshPage()
   }
 
   function changeModalVisibility() {
     setModalIsOpen(!modalIsOpen);
+  }
+
+  function refreshPage() {
+    window.location.reload();
   }
 
   return (
