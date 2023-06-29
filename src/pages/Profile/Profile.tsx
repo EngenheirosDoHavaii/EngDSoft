@@ -26,7 +26,6 @@ export function Profile() {
     };
   }, [auth, navigate]);
 
-  console.log(userData);
   return (
     <div className="container-profile">
       <div className="profile-content">
@@ -44,12 +43,6 @@ export function Profile() {
             >
               Logout
             </button>
-          </div>
-
-          <div className="user-profile-text">
-            <div className="user-name">{auth.currentUser?.displayName}</div>
-            <div className="user-date">Since </div>
-            <div className="user-email">{auth.currentUser?.email}</div>
           </div>
 
           {userData && (

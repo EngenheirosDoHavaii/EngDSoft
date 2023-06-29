@@ -1,14 +1,19 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, User, getAuth, signInWithPopup, signOut} from "firebase/auth";
-import { getFirestore } from 'firebase/firestore';
-import { collection, addDoc,  getDocs} from "firebase/firestore";
+import {
+  GoogleAuthProvider,
+  User,
+  getAuth,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import { ItemEntity } from "../entity/item-entity";
 import Product from "../interfaces/Product";
 import UserType from "../interfaces/UserType";
 
-
-export class Firebase  {
+export class Firebase {
   private static firebaseConfig = {
     apiKey: "AIzaSyCVTd6q0xT6MoKynsc2Grysvx_uSvN7D74",
     authDomain: "mind-48c91.firebaseapp.com",
@@ -16,7 +21,7 @@ export class Firebase  {
     storageBucket: "mind-48c91.appspot.com",
     messagingSenderId: "600356704496",
     appId: "1:600356704496:web:0cd835c16ad0a9f2fc7235",
-    measurementId: "G-F9270S9XDD"
+    measurementId: "G-F9270S9XDD",
   };
   private static app = initializeApp(this.firebaseConfig);
   private static db = getFirestore(this.app);
@@ -24,9 +29,10 @@ export class Firebase  {
 
   public static async SignInWithGoogle() {
     const provider = new GoogleAuthProvider();
-  
-    return signInWithPopup(Firebase.auth, provider)
-      .then((result) => result.user)
+
+    return signInWithPopup(Firebase.auth, provider).then(
+      (result) => result.user
+    );
   }
 
   public static GetAuth() {
@@ -44,21 +50,20 @@ export class Firebase  {
       if (userID === user.data().uid) {
         return true;
       }
-    } 
+    }
     return false;
-
   }
 
   public static async addUser(user: User) {
-    const userInDB = await Firebase.isUserInDatabase(user.uid)
-    
+    const userInDB = await Firebase.isUserInDatabase(user.uid);
+
     if (!userInDB) {
       const newUser: UserType = {
         uid: user.uid,
         email: user.email,
-        name: user.displayName
-      }
-        await addDoc(collection(Firebase.db, "users"), newUser);
+        name: user.displayName,
+      };
+      await addDoc(collection(Firebase.db, "users"), newUser);
     }
 
     return;
@@ -72,22 +77,24 @@ export class Firebase  {
 
   public static async getProducts() {
     const productsSnapshot = await getDocs(collection(Firebase.db, "products"));
-    const productsList = productsSnapshot.docs.map(doc => { 
-      const data = doc.data()
+    const productsList = productsSnapshot.docs.map((doc) => {
+      const data = doc.data();
       const newData: Product = {
         name: data.title,
         description: data.description,
-        id: doc.id, 
-        email: data.email
-      }
-      return newData
+        id: doc.id,
+        email: data.email,
+      };
+      return newData;
     });
-    return productsList
+    return productsList;
   }
 
   public static async getUserProducts() {
     let productsList = await Firebase.getProducts();
-    const userProducts = productsList.filter(product => product.email === this.auth.currentUser?.email);
+    const userProducts = productsList.filter(
+      (product) => product.email === this.auth.currentUser?.email
+    );
     return userProducts;
   }
 }
