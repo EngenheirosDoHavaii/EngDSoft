@@ -4,7 +4,7 @@ import { getFirestore} from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 export class FirebaseConfig {
-    static instance = new FirebaseConfig()
+    private static instance: FirebaseConfig
      firebaseConfig = {
       apiKey: "AIzaSyCVTd6q0xT6MoKynsc2Grysvx_uSvN7D74",
       authDomain: "mind-48c91.firebaseapp.com",
@@ -18,13 +18,13 @@ export class FirebaseConfig {
     db = getFirestore(this.app);
     auth = getAuth(this.app);
 
-    static getInstance() {
-      if (FirebaseConfig.instance == null) {
-        FirebaseConfig.instance = new FirebaseConfig();
+    public static getInstance(): FirebaseConfig {
+      if (!FirebaseConfig.instance) {
+          FirebaseConfig.instance = new FirebaseConfig();
       }
 
-      return this.instance;
-    }
+      return FirebaseConfig.instance;
+  }
   
 }
 

@@ -9,10 +9,18 @@ import {
   } from "firebase/auth";
 
 export class FirestoreManager {
-    static instance = new FirestoreManager()
+    private static instance: FirestoreManager
+
+    public static getInstance(): FirestoreManager {
+        if (!FirestoreManager.instance) {
+            FirestoreManager.instance = new FirestoreManager();
+        }
+
+        return FirestoreManager.instance;
+    }
 
     public static async isUserInDatabase(userID: string) {
-        const usersList = await getDocs(collection(FirebaseConfig.instance.db, "users"));
+        const usersList = await getDocs(collection(FirebaseConfig.getInstance().db, "users"));
     
         for (let user of usersList.docs) {
           if (userID === user.data().uid) {
@@ -31,20 +39,20 @@ export class FirestoreManager {
             email: user.email,
             name: user.displayName,
           };
-          await addDoc(collection(FirebaseConfig.instance.db, "users"), newUser);
+          await addDoc(collection(FirebaseConfig.getInstance().db, "users"), newUser);
         }
     
         return;
       }
     
       public static async AddProduct(item: ItemEntity) {
-        const docRef = await addDoc(collection(FirebaseConfig.instance.db, "products"), item);
+        const docRef = await addDoc(collection(FirebaseConfig.getInstance().db, "products"), item);
         await updateDoc(docRef, {timestamp: Timestamp.fromMillis(Date.now())});
         return docRef.id;
       }
     
       public static async getProducts() {
-        const collectionRef = collection(FirebaseConfig.instance.db, "products")
+        const collectionRef = collection(FirebaseConfig.getInstance().db, "products")
         const q = query(collectionRef, orderBy('timestamp', 'desc'))
         const productsSnapshot = await getDocs(q);
         const productsList = productsSnapshot.docs.map((doc) => {
@@ -63,7 +71,7 @@ export class FirestoreManager {
       public static async getUserProducts() {
         let productsList = await this.getProducts();
         const userProducts = productsList.filter(
-          (product) => product.email === FirebaseConfig.instance.auth.currentUser?.email
+          (product) => product.email === FirebaseConfig.getInstance().auth.currentUser?.email
         );
         return userProducts;
       }

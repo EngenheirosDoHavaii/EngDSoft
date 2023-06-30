@@ -6,22 +6,30 @@ import {
 import { FirebaseConfig } from "../services/FirebaseConfig";
   
 export class AuthManager {
-    static instance = new AuthManager()
+    private static instance: AuthManager
+
+    public static getInstance(): AuthManager {
+        if (!AuthManager.instance) {
+            AuthManager.instance = new AuthManager();
+        }
+
+        return AuthManager.instance;
+    }
 
     public static async SignInWithGoogle() {
     const provider = new GoogleAuthProvider();
 
-        return signInWithPopup(FirebaseConfig.instance.auth, provider).then(
+        return signInWithPopup(FirebaseConfig.getInstance().auth, provider).then(
         (result) => result.user
         );
     }
 
     public static GetAuth() {
-        return FirebaseConfig.instance.auth;
+        return FirebaseConfig.getInstance().auth;
     }
 
     public static LogOut() {
-        signOut(FirebaseConfig.instance.auth);
+        signOut(FirebaseConfig.getInstance().auth);
     }
   
 }
