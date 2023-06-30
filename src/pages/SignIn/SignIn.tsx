@@ -8,7 +8,7 @@ export function SignIn() {
 
   async function AuthenticatedUser() {
     try {
-      const authenticatedUser = await AuthManager.SignInWithGoogle();
+      const authenticatedUser = await AuthManager.getInstance().SignInWithGoogle();
       if (authenticatedUser != null) {
         await FirestoreManager.addUser(authenticatedUser);
         navigate("/");

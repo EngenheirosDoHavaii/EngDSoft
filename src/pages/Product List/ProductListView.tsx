@@ -12,8 +12,7 @@ const getFilteredItems = (query: string, items: Product[]) => {
   return items.filter(
     (product) =>
       product.name.toLowerCase().includes(query) ||
-      product.description.toLowerCase().includes(query) ||
-      product.email.toLowerCase().includes(query)
+      product.description.toLowerCase().includes(query)
   );
 };
 

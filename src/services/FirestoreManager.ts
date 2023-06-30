@@ -1,6 +1,5 @@
 import { Timestamp, orderBy, query, updateDoc } from "firebase/firestore";
 import { collection, addDoc, getDocs, deleteDoc } from "firebase/firestore";
-import { ItemEntity } from "../entity/item-entity";
 import Product from "../interfaces/Product";
 import UserType from "../interfaces/UserType";
 import { FirebaseConfig } from "../services/FirebaseConfig";
@@ -44,8 +43,8 @@ export class FirestoreManager {
     
         return;
       }
-    
-      public static async AddProduct(item: ItemEntity) {
+      
+      public async AddProduct(item: Product) {
         const docRef = await addDoc(collection(FirebaseConfig.getInstance().db, "products"), item);
         await updateDoc(docRef, {timestamp: Timestamp.fromMillis(Date.now())});
         return docRef.id;

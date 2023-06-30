@@ -6,7 +6,7 @@ interface Params {
 }
 
 const Protected = ({ children }: Params) => {
-  const auth = AuthManager.GetAuth();
+  const auth = AuthManager.getInstance().GetAuth();
   if (auth.currentUser == null) {
     return <Navigate to="/signin" />;
   }

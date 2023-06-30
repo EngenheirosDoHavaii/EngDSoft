@@ -16,7 +16,7 @@ export class AuthManager {
         return AuthManager.instance;
     }
 
-    public static async SignInWithGoogle() {
+    public async SignInWithGoogle() {
     const provider = new GoogleAuthProvider();
 
         return signInWithPopup(FirebaseConfig.getInstance().auth, provider).then(
@@ -24,11 +24,11 @@ export class AuthManager {
         );
     }
 
-    public static GetAuth() {
+    public GetAuth() {
         return FirebaseConfig.getInstance().auth;
     }
 
-    public static LogOut() {
+    public LogOut() {
         signOut(FirebaseConfig.getInstance().auth);
     }
   

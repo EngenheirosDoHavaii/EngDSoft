@@ -3,32 +3,31 @@ import React from "react";
 import TextInput from "../Inputs/TextInput";
 import { AuthManager } from "../../services/AuthManager";
 import { FirestoreManager } from "../../services/FirestoreManager";
-import { ItemEntity } from "../../entity/item-entity";
 import "../../style/AddItemModal.css"
+import Product from "../../interfaces/Product";
 
 interface InputValue {
   value: string;
 }
 
 interface FormParams {
-  title: InputValue;
+  name: InputValue;
   description: InputValue;
 }
 
 function AddItemModal() {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const auth = AuthManager.GetAuth();
+  const auth = AuthManager.getInstance().GetAuth();
 
   async function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const formElements = form.elements as typeof form.elements & FormParams;
-    await FirestoreManager.AddProduct({
-      title: formElements.title.value,
+    await FirestoreManager.getInstance().AddProduct({
+      name: formElements.name.value,
       description: formElements.description.value,
       email: auth.currentUser?.email,
-      user_id: auth.currentUser?.uid
-    } as ItemEntity);
+    } as Product);
 
     changeModalVisibility()
   }
@@ -42,7 +41,7 @@ function AddItemModal() {
       <button onClick={changeModalVisibility} className="add-item-button">Add Item</button>
       <Modal isOpen={modalIsOpen} contentLabel="AddItemModal">
         <form onSubmit={handleSubmit}>
-          <TextInput text="title" />
+          <TextInput text="name" />
           <TextInput text="description" />
           <button onClick={changeModalVisibility}>Cancel</button>
           <button type="submit">Add</button>

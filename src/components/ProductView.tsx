@@ -26,7 +26,7 @@ const ProductView = (product: Product) => {
 
         <div className="product-buttons">
           <button className="details-btn" onClick={buttonHandler}>See details</button>
-          {AuthManager.GetAuth().currentUser?.email === product.email && 
+          {AuthManager.getInstance().GetAuth().currentUser?.email === product.email && 
             <button className="delete-btn" onClick={deleteButtonHandler}>Delete</button>
           }
         </div>
