@@ -16,7 +16,7 @@ interface FormParams {
 
 function AddItemModal() {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const auth = Firebase.GetAuth();
+  const auth = Firebase.getInstace().GetAuth();
 
   async function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();

@@ -12,8 +12,7 @@ const getFilteredItems = (query: string, items: Product[]) => {
   return items.filter(
     (product) =>
       product.name.toLowerCase().includes(query) ||
-      product.description.toLowerCase().includes(query) ||
-      product.email.toLowerCase().includes(query)
+      product.description.toLowerCase().includes(query)
   );
 };
 
@@ -23,7 +22,7 @@ function ProductListView() {
   const filteredItems = getFilteredItems(query, minhaLista);
 
   useEffect(() => {
-    Firebase.getProducts().then((productList) => setMinhaLista(productList));
+    Firebase.getInstace().getProducts().then((productList) => setMinhaLista(productList));
   }, []);
 
   const listItems = filteredItems.map((product) => (
