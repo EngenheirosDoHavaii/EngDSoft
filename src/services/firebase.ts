@@ -79,7 +79,7 @@ export class Firebase {
     return;
   }
 
-  public static async AddProduct(item: Product) {
+  public async AddProduct(item: Product) {
     const docRef = await addDoc(collection(Firebase.getInstace().db, "products"), item);
     await updateDoc(docRef, {timestamp: Timestamp.fromMillis(Date.now())});
     return docRef.id;
