@@ -1,6 +1,6 @@
 import ProductView from "../ProductView";
 import Product from "../../interfaces/Product";
-import { Firebase } from "../../services/firebase";
+import { FirestoreManager } from "../../services/FirestoreManager";
 import { useState, useEffect } from "react";
 import "../../style/UserProductList.css";
 
@@ -8,7 +8,7 @@ function UserProductList() {
     const [myList, setMyList] = useState<Product[]>([]);
 
     useEffect(() => {
-        Firebase.getUserProducts().then((userProductList) => setMyList(userProductList))
+        FirestoreManager.getUserProducts().then((userProductList) => setMyList(userProductList))
     }, [])
     
     const listItems = myList.map((product) => (

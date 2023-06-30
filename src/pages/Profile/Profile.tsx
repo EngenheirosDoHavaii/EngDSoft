@@ -1,4 +1,4 @@
-import { Firebase } from "../../services/firebase";
+import { AuthManager } from "../../services/AuthManager";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import AddItemModal from "../../components/Modal/AddItemModal";
@@ -9,7 +9,7 @@ import UserProductList from "../../components/UserProductsList/UserProductList";
 
 export function Profile() {
   const navigate = useNavigate();
-  const auth = Firebase.GetAuth();
+  const auth = AuthManager.GetAuth();
   const [userData, setUserData] = useState<User | null>(null);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export function Profile() {
             ></img>
             <button
               type="button"
-              onClick={Firebase.LogOut}
+              onClick={AuthManager.LogOut}
               className="logout-button"
             >
               Logout
