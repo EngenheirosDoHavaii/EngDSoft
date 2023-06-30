@@ -14,6 +14,13 @@ interface FormParams {
   description: InputValue;
 }
 
+const validUserInput = (event: React.SyntheticEvent<HTMLFormElement>) => {
+  const form = event.currentTarget;
+  const formElements = form.elements as typeof form.elements & FormParams;
+  
+  
+};
+
 function AddItemModal() {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
   const auth = Firebase.GetAuth();

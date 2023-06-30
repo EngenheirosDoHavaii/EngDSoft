@@ -16,7 +16,7 @@ test("test filter", () => {
     },
     {
       name: "Camisa do flamengo",
-      email: "Uolace",
+      email: "Uolace@gmail.com",
       description: "Camisa de time",
       id: "2",
     },
