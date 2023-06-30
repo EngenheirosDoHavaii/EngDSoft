@@ -7,9 +7,14 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import { Timestamp, getFirestore, orderBy, query, updateDoc } from "firebase/firestore";
+import {
+  Timestamp,
+  getFirestore,
+  orderBy,
+  query,
+  updateDoc,
+} from "firebase/firestore";
 import { collection, addDoc, getDocs, deleteDoc } from "firebase/firestore";
-import { ItemEntity } from "../entity/item-entity";
 import Product from "../interfaces/Product";
 import UserType from "../interfaces/UserType";
 
@@ -69,20 +74,20 @@ export class Firebase {
     return;
   }
 
-  public static async AddProduct(item: ItemEntity) {
+  public static async AddProduct(item: Product) {
     const docRef = await addDoc(collection(Firebase.db, "products"), item);
-    await updateDoc(docRef, {timestamp: Timestamp.fromMillis(Date.now())});
+    await updateDoc(docRef, { timestamp: Timestamp.fromMillis(Date.now()) });
     return docRef.id;
   }
 
   public static async getProducts() {
-    const collectionRef = collection(Firebase.db, "products")
-    const q = query(collectionRef, orderBy('timestamp', 'desc'))
+    const collectionRef = collection(Firebase.db, "products");
+    const q = query(collectionRef, orderBy("timestamp", "desc"));
     const productsSnapshot = await getDocs(q);
     const productsList = productsSnapshot.docs.map((doc) => {
       const data = doc.data();
       const newData: Product = {
-        name: data.title,
+        name: data.name,
         description: data.description,
         id: doc.ref,
         email: data.email,
@@ -99,10 +104,9 @@ export class Firebase {
     );
     return userProducts;
   }
-  
+
   public static async deleteUserProduct(product: Product) {
-    await deleteDoc(product.id)
+    await deleteDoc(product.id);
     return;
   }
 }
-
