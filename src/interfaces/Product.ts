@@ -1,7 +1,7 @@
 import { DocumentReference } from "firebase/firestore";
 
 type Product = {
-    id: DocumentReference;
+    id: DocumentReference | String;
     name: string;
     email: string;
     description: string;
