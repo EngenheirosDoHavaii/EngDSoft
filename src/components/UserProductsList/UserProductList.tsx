@@ -8,7 +8,7 @@ function UserProductList() {
     const [myList, setMyList] = useState<Product[]>([]);
 
     useEffect(() => {
-        Firebase.getUserProducts().then((userProductList) => setMyList(userProductList))
+        Firebase.getInstace().getUserProducts().then((userProductList) => setMyList(userProductList))
     }, [])
     
     const listItems = myList.map((product) => (

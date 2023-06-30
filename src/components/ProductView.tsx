@@ -9,7 +9,7 @@ const ProductView = (product: Product) => {
   };
 
   const deleteButtonHandler = () => {
-    Firebase.deleteUserProduct(product);
+    Firebase.getInstace().deleteUserProduct(product);
   }
 
   return (
@@ -25,7 +25,7 @@ const ProductView = (product: Product) => {
 
         <div className="product-buttons">
           <button className="details-btn" onClick={buttonHandler}>See details</button>
-          {Firebase.GetAuth().currentUser?.email === product.email && 
+          {Firebase.getInstace().GetAuth().currentUser?.email === product.email && 
             <button className="delete-btn" onClick={deleteButtonHandler}>Delete</button>
           }
         </div>

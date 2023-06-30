@@ -6,7 +6,7 @@ interface Params {
 }
 
 const Protected = ({ children }: Params) => {
-  const auth = Firebase.GetAuth();
+  const auth = Firebase.getInstace().GetAuth();
   if (auth.currentUser == null) {
     return <Navigate to="/signin" />;
   }

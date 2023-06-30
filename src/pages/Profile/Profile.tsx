@@ -9,7 +9,7 @@ import UserProductList from "../../components/UserProductsList/UserProductList";
 
 export function Profile() {
   const navigate = useNavigate();
-  const auth = Firebase.GetAuth();
+  const auth = Firebase.getInstace().GetAuth();
   const [userData, setUserData] = useState<User | null>(null);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export function Profile() {
             ></img>
             <button
               type="button"
-              onClick={Firebase.LogOut}
+              onClick={Firebase.getInstace().LogOut}
               className="logout-button"
             >
               Logout

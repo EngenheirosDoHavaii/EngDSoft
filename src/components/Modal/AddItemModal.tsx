@@ -16,13 +16,13 @@ interface FormParams {
 
 function AddItemModal() {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const auth = Firebase.GetAuth();
+  const auth = Firebase.getInstace().GetAuth();
 
   async function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const formElements = form.elements as typeof form.elements & FormParams;
-    await Firebase.AddProduct({
+    await Firebase.getInstace().AddProduct({
       name: formElements.name.value,
       description: formElements.description.value,
       email: auth.currentUser?.email,

@@ -7,9 +7,11 @@ export function SignIn() {
 
   async function AuthenticatedUser() {
     try {
-      const authenticatedUser = await Firebase.SignInWithGoogle();
+      const firebase = Firebase.getInstace();
+      
+      const authenticatedUser = await firebase.SignInWithGoogle();
       if (authenticatedUser != null) {
-        await Firebase.addUser(authenticatedUser);
+        await firebase.addUser(authenticatedUser);
         navigate("/");
       }
     } catch (error: any) {
