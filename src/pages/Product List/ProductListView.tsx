@@ -22,7 +22,7 @@ function ProductListView() {
   const filteredItems = getFilteredItems(query, minhaLista);
 
   useEffect(() => {
-    FirestoreManager.getProducts().then((productList) => setMinhaLista(productList));
+    FirestoreManager.getInstance().getProducts().then((productList) => setMinhaLista(productList));
   }, []);
 
   const listItems = filteredItems.map((product) => (

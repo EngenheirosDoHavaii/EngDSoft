@@ -8,7 +8,7 @@ function UserProductList() {
     const [myList, setMyList] = useState<Product[]>([]);
 
     useEffect(() => {
-        FirestoreManager.getUserProducts().then((userProductList) => setMyList(userProductList))
+        FirestoreManager.getInstance().getUserProducts().then((userProductList) => setMyList(userProductList))
     }, [])
     
     const listItems = myList.map((product) => (

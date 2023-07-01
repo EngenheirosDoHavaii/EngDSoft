@@ -10,7 +10,7 @@ export function SignIn() {
     try {
       const authenticatedUser = await AuthManager.getInstance().SignInWithGoogle();
       if (authenticatedUser != null) {
-        await FirestoreManager.addUser(authenticatedUser);
+        await FirestoreManager.getInstance().addUser(authenticatedUser);
         navigate("/");
       }
     } catch (error: any) {

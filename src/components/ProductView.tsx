@@ -10,7 +10,7 @@ const ProductView = (product: Product) => {
   };
 
   const deleteButtonHandler = () => {
-    FirestoreManager.deleteUserProduct(product);
+    FirestoreManager.getInstance().deleteUserProduct(product);
   }
 
   return (

@@ -18,7 +18,7 @@ export class FirestoreManager {
         return FirestoreManager.instance;
     }
 
-    public static async isUserInDatabase(userID: string) {
+    public async isUserInDatabase(userID: string) {
         const usersList = await getDocs(collection(FirebaseConfig.getInstance().db, "users"));
     
         for (let user of usersList.docs) {
@@ -29,54 +29,54 @@ export class FirestoreManager {
         return false;
     }
     
-      public static async addUser(user: User) {
+    public async addUser(user: User) {
         const userInDB = await this.isUserInDatabase(user.uid);
-    
+
         if (!userInDB) {
-          const newUser: UserType = {
+            const newUser: UserType = {
             uid: user.uid,
             email: user.email,
             name: user.displayName,
-          };
-          await addDoc(collection(FirebaseConfig.getInstance().db, "users"), newUser);
+            };
+            await addDoc(collection(FirebaseConfig.getInstance().db, "users"), newUser);
         }
-    
+
         return;
-      }
-      
-      public async AddProduct(item: Product) {
+    }
+
+    public async AddProduct(item: Product) {
         const docRef = await addDoc(collection(FirebaseConfig.getInstance().db, "products"), item);
         await updateDoc(docRef, {timestamp: Timestamp.fromMillis(Date.now())});
         return docRef.id;
-      }
+    }
     
-      public static async getProducts() {
+    public async getProducts() {
         const collectionRef = collection(FirebaseConfig.getInstance().db, "products")
         const q = query(collectionRef, orderBy('timestamp', 'desc'))
         const productsSnapshot = await getDocs(q);
         const productsList = productsSnapshot.docs.map((doc) => {
-          const data = doc.data();
-          const newData: Product = {
+            const data = doc.data();
+            const newData: Product = {
             name: data.title,
             description: data.description,
             id: doc.ref,
             email: data.email,
-          };
-          return newData;
+            };
+            return newData;
         });
         return productsList;
-      }
+    }
     
-      public static async getUserProducts() {
+    public async getUserProducts() {
         let productsList = await this.getProducts();
         const userProducts = productsList.filter(
-          (product) => product.email === FirebaseConfig.getInstance().auth.currentUser?.email
+            (product) => product.email === FirebaseConfig.getInstance().auth.currentUser?.email
         );
         return userProducts;
-      }
-      
-      public static async deleteUserProduct(product: Product) {
+    }
+    
+    public async deleteUserProduct(product: Product) {
         await deleteDoc(product.id)
         return;
-      }
+    }
 }
