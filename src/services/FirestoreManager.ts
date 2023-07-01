@@ -1,4 +1,4 @@
-import { Timestamp, orderBy, query, updateDoc } from "firebase/firestore";
+import { DocumentReference, Timestamp, orderBy, query, updateDoc } from "firebase/firestore";
 import { collection, addDoc, getDocs, deleteDoc } from "firebase/firestore";
 import Product from "../interfaces/Product";
 import UserType from "../interfaces/UserType";
@@ -76,7 +76,7 @@ export class FirestoreManager {
     }
     
     public async deleteUserProduct(product: Product) {
-        await deleteDoc(product.id)
+        await deleteDoc(product.id as DocumentReference<unknown>)
         return;
     }
 }
