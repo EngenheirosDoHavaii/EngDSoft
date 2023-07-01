@@ -5,15 +5,12 @@ import { FirestoreManager } from "../services/FirestoreManager";
 import { AuthManager } from "../services/AuthManager";
 
 const ProductView = (product: Product) => {
-  const firestoreManager = FirestoreManager.getInstance();
-  const authManager = AuthManager.getInstance();
-
   const buttonHandler = () => {
     console.log("button pressed");
   };
 
   const deleteButtonHandler = () => {
-    firestoreManager.deleteUserProduct(product);
+    FirestoreManager.getInstance().deleteUserProduct(product);
   }
 
   return (
@@ -29,7 +26,7 @@ const ProductView = (product: Product) => {
 
         <div className="product-buttons">
           <button className="details-btn" onClick={buttonHandler}>See details</button>
-          {authManager.getUserEmail() === product.email && 
+          {AuthManager.getInstance().GetAuth().currentUser?.email === product.email && 
             <button className="delete-btn" onClick={deleteButtonHandler}>Delete</button>
           }
         </div>
