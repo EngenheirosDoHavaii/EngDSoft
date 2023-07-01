@@ -57,7 +57,7 @@ export class FirestoreManager {
         const productsList = productsSnapshot.docs.map((doc) => {
             const data = doc.data();
             const newData: Product = {
-            name: data.title,
+            name: data.name,
             description: data.description,
             id: doc.ref,
             email: data.email,

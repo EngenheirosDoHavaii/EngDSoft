@@ -28,6 +28,10 @@ export class AuthManager {
         return FirebaseConfig.getInstance().auth;
     }
 
+    public getUserEmail() {
+        return FirebaseConfig.getInstance().auth.currentUser?.email;
+    }
+
     public LogOut() {
         signOut(FirebaseConfig.getInstance().auth);
     }
