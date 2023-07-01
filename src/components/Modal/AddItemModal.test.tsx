@@ -31,7 +31,7 @@ describe("<AddItemModal />", () => {
     const addItemButton = screen.getByRole("button", { name: /Add Item/i });
 
     fireEvent.click(addItemButton); // Abre o modal
-    const modalTitleInput: HTMLInputElement = screen.getByLabelText(/title/i);
+    const modalTitleInput: HTMLInputElement = screen.getByLabelText(/name/i);
     fireEvent.change(modalTitleInput, { target: { value: "lapis" } });
 
     expect(modalTitleInput.value.length).toBeGreaterThanOrEqual(5);
@@ -41,7 +41,7 @@ describe("<AddItemModal />", () => {
     const addItemButton = screen.getByRole("button", { name: /Add Item/i });
 
     fireEvent.click(addItemButton); // Abre o modal
-    const modalTitleInput: HTMLInputElement = screen.getByLabelText(/title/i);
+    const modalTitleInput: HTMLInputElement = screen.getByLabelText(/name/i);
     fireEvent.change(modalTitleInput, { target: { value: "lapi" } });
 
     expect(modalTitleInput.value.length).not.toBeGreaterThanOrEqual(5);
