@@ -1,15 +1,18 @@
 import "../style/ProductView.css";
 import Product from "../interfaces/Product";
 import logo from '../style/assets/mockimage.jpeg';
-import { Firebase } from "../services/firebase";
+import { FirestoreManager } from "../services/FirestoreManager";
+import { AuthManager } from "../services/AuthManager";
 
 const ProductView = (product: Product) => {
+  const authManager = AuthManager.getInstance();
+
   const buttonHandler = () => {
     console.log("button pressed");
   };
 
   const deleteButtonHandler = () => {
-    Firebase.deleteUserProduct(product);
+    FirestoreManager.getInstance().deleteUserProduct(product);
   }
 
   return (
@@ -25,7 +28,7 @@ const ProductView = (product: Product) => {
 
         <div className="product-buttons">
           <button className="details-btn" onClick={buttonHandler}>See details</button>
-          {Firebase.GetAuth().currentUser?.email === product.email && 
+          {authManager.getUserEmail() === product.email && 
             <button className="delete-btn" onClick={deleteButtonHandler}>Delete</button>
           }
         </div>

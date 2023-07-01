@@ -1,7 +1,8 @@
 import Modal from "react-modal";
 import React from "react";
 import TextInput from "../Inputs/TextInput";
-import { Firebase } from "../../services/firebase";
+import { AuthManager } from "../../services/AuthManager";
+import { FirestoreManager } from "../../services/FirestoreManager";
 import "../../style/AddItemModal.css"
 import Product from "../../interfaces/Product";
 
@@ -23,13 +24,13 @@ const validUserInput = (event: React.SyntheticEvent<HTMLFormElement>) => {
 
 function AddItemModal() {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
-  const auth = Firebase.GetAuth();
+  const auth = AuthManager.getInstance().GetAuth();
 
   async function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const formElements = form.elements as typeof form.elements & FormParams;
-    await Firebase.AddProduct({
+    await FirestoreManager.getInstance().AddProduct({
       name: formElements.name.value,
       description: formElements.description.value,
       email: auth.currentUser?.email,
