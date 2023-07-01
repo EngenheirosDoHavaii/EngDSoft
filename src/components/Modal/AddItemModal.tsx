@@ -43,7 +43,7 @@ function AddItemModal() {
       </button>
       <Modal isOpen={modalIsOpen} contentLabel="AddItemModal">
         <form onSubmit={handleSubmit}>
-          <TextInput text="title" length={5} />
+          <TextInput text="name" length={5} />
           <TextInput text="description" length={20} />
           <button onClick={changeModalVisibility}>Cancel</button>
           <button type="submit">Add</button>
