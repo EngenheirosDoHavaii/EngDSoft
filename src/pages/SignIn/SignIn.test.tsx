@@ -3,6 +3,7 @@ import "@testing-library/jest-dom";
 import { SignIn } from "./SignIn";
 import { fireEvent, waitFor } from "@testing-library/react";
 import { AuthManager } from "../../services/AuthManager";
+import { FirestoreManager } from "../../services/FirestoreManager";
 
 const mockedUsedNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
@@ -24,6 +25,7 @@ test("renders sign in button", () => {
   expect(buttonElement).toBeInTheDocument();
 });
 
+
 jest.mock("../../services/AuthManager");
 jest.mock("../../services/FirestoreManager");
 
@@ -33,13 +35,20 @@ describe("SignIn component", () => {
   });
 
   test("should call SignInWithGoogle and navigate to '/' on successful authentication", async () => {
-    const mockSignInWithGoogle = jest.fn().mockImplementation(async () => ({
-      uid: "user1",
-      email: "user@example.com",
-    }));
+    const mockSignInWithGoogle = jest
+      .fn()
+      .mockImplementation(async () => ({
+        uid: "user1",
+        email: "user@example.com",
+      }));
     AuthManager.getInstance = jest
       .fn()
       .mockReturnValue({ SignInWithGoogle: mockSignInWithGoogle });
+
+    const mockAddUser = jest.fn();
+    FirestoreManager.getInstance = jest
+    .fn()
+    .mockReturnValue({ addUser: mockAddUser });
 
     const { getByText } = render(<SignIn />);
 
@@ -47,6 +56,10 @@ describe("SignIn component", () => {
 
     await waitFor(() => {
       expect(mockSignInWithGoogle).toHaveBeenCalled();
+      expect(mockAddUser).toHaveBeenCalledWith({
+        uid: "user1",
+        email: "user@example.com",
+      });
     });
   });
 
@@ -57,7 +70,7 @@ describe("SignIn component", () => {
     AuthManager.getInstance = jest
       .fn()
       .mockReturnValue({ SignInWithGoogle: mockSignInWithGoogle });
-
+      
     const mockConsoleLog = jest.spyOn(console, "log").mockImplementation();
 
     const { getByText } = render(<SignIn />);
@@ -72,3 +85,4 @@ describe("SignIn component", () => {
     mockConsoleLog.mockRestore();
   });
 });
+
