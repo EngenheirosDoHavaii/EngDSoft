@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { Firebase } from "../../services/firebase";
+import { AuthManager } from "../../services/AuthManager";
+import { FirestoreManager } from "../../services/FirestoreManager";
 import "./SignIn.css";
 
 export function SignIn() {
@@ -7,11 +8,9 @@ export function SignIn() {
 
   async function AuthenticatedUser() {
     try {
-      const firebase = Firebase.getInstace();
-      
-      const authenticatedUser = await firebase.SignInWithGoogle();
+      const authenticatedUser = await AuthManager.getInstance().SignInWithGoogle();
       if (authenticatedUser != null) {
-        await firebase.addUser(authenticatedUser);
+        await FirestoreManager.getInstance().addUser(authenticatedUser);
         navigate("/");
       }
     } catch (error: any) {

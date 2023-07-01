@@ -1,7 +1,7 @@
 import ProductView from "../../components/ProductView";
 import "../../style/ProductListView.css";
 import Product from "../../interfaces/Product";
-import { Firebase } from "../../services/firebase";
+import { FirestoreManager } from "../../services/FirestoreManager";
 import { useState, useEffect } from "react";
 
 const getFilteredItems = (query: string, items: Product[]) => {
@@ -22,7 +22,7 @@ function ProductListView() {
   const filteredItems = getFilteredItems(query, minhaLista);
 
   useEffect(() => {
-    Firebase.getInstace().getProducts().then((productList) => setMinhaLista(productList));
+    FirestoreManager.getInstance().getProducts().then((productList) => setMinhaLista(productList));
   }, []);
 
   const listItems = filteredItems.map((product) => (

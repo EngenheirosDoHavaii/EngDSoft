@@ -1,12 +1,12 @@
 import { Navigate } from "react-router-dom";
-import { Firebase } from "../services/firebase";
+import { AuthManager } from "../services/AuthManager";
 
 interface Params {
   children: JSX.Element;
 }
 
 const Protected = ({ children }: Params) => {
-  const auth = Firebase.getInstace().GetAuth();
+  const auth = AuthManager.getInstance().GetAuth();
   if (auth.currentUser == null) {
     return <Navigate to="/signin" />;
   }
